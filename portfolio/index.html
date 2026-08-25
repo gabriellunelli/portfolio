@@ -2,53 +2,594 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Gabriel Lunelli | Desenvolvedor</title>
 
-    <meta
-        name="description"
-        content="Portfólio de Gabriel Lunelli — DevOps, Cloud, Automação e Desenvolvimento."
-    >
+    <style>
 
-    <title>Gabriel Lunelli — DevOps & Cloud</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        html {
+            scroll-behavior: smooth;
+        }
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: white;
+        }
 
-    <link rel="stylesheet" href="style.css">
+
+        /* =========================
+           FUNDO FIXO
+        ========================= */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.75)
+                ),
+                url("img/fundo.png");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.15);
+
+            z-index: -1;
+        }
+
+
+        /* =========================
+           NAVBAR FLUTUANTE
+        ========================= */
+
+        .navbar {
+
+            position: fixed;
+
+            top: 20px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: min(700px, 90%);
+
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 22px;
+
+            z-index: 100;
+
+            background: rgba(20, 20, 20, 0.55);
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+
+            border-radius: 50px;
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.35);
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        /* LINKS */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+        }
+
+        .nav-links a {
+
+            color: rgba(255, 255, 255, 0.75);
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+
+            color: white;
+        }
+
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section {
+
+            min-height: 100vh;
+
+            padding: 140px 8%;
+
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 8%;
+
+            background: transparent;
+        }
+
+        .hero-content {
+
+            max-width: 700px;
+        }
+
+        .hero-content p {
+
+            font-size: 18px;
+
+            margin-bottom: 12px;
+
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .hero-content h1 {
+
+            font-size: clamp(48px, 7vw, 90px);
+
+            line-height: 0.95;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero-content h2 {
+
+            font-size: 22px;
+
+            font-weight: 400;
+
+            color: rgba(255, 255, 255, 0.65);
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================
+           BOTÃO
+        ========================= */
+
+        .button {
+
+            display: inline-block;
+
+            padding: 14px 25px;
+
+            background: white;
+
+            color: black;
+
+            text-decoration: none;
+
+            border-radius: 50px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+
+            transform: translateY(-3px);
+
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+
+        /* =========================
+           TÍTULOS
+        ========================= */
+
+        .section-title {
+
+            font-size: clamp(40px, 5vw, 65px);
+
+            letter-spacing: -3px;
+
+            margin-bottom: 55px;
+        }
+
+
+        /* =========================
+           SOBRE
+        ========================= */
+
+        .about {
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .about-content {
+
+            max-width: 800px;
+        }
+
+        .about-content p {
+
+            font-size: 21px;
+
+            line-height: 1.7;
+
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .about-content strong {
+
+            color: white;
+        }
+
+
+        /* =========================
+           PROJETOS
+        ========================= */
+
+        .projects {
+
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .projects-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
+
+            max-width: 1100px;
+        }
+
+        .project {
+
+            min-height: 300px;
+
+            padding: 35px;
+
+            background: rgba(15, 15, 15, 0.45);
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            border-radius: 20px;
+
+            backdrop-filter: blur(10px);
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            transition: 0.3s;
+        }
+
+        .project:hover {
+
+            transform: translateY(-5px);
+
+            background: rgba(25, 25, 25, 0.55);
+
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .project-number {
+
+            font-size: 13px;
+
+            color: #666;
+        }
+
+        .project h3 {
+
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+        .project p {
+
+            color: rgba(255, 255, 255, 0.55);
+
+            line-height: 1.6;
+        }
+
+        .project-link {
+
+            margin-top: 25px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .project-link:hover {
+
+            opacity: 0.5;
+        }
+
+
+        /* =========================
+           TECNOLOGIAS
+        ========================= */
+
+        .skills {
+
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .skills-list {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            max-width: 800px;
+        }
+
+        .skill {
+
+            padding: 12px 18px;
+
+            background: rgba(20, 20, 20, 0.45);
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            border-radius: 50px;
+
+            color: rgba(255, 255, 255, 0.65);
+
+            backdrop-filter: blur(8px);
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+
+            color: white;
+
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+
+        /* =========================
+           CONTATO
+        ========================= */
+
+        .contact {
+
+            min-height: 80vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .contact h2 {
+
+            font-size: clamp(45px, 6vw, 80px);
+
+            max-width: 850px;
+
+            line-height: 0.95;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 40px;
+        }
+
+        .contact-links {
+
+            display: flex;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+
+            color: white;
+
+            text-decoration: none;
+
+            padding-bottom: 5px;
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+            transition: 0.3s;
+        }
+
+        .contact-links a:hover {
+
+            border-color: white;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            padding: 30px 8%;
+
+            background: rgba(0, 0, 0, 0.55);
+
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+            color: rgba(255, 255, 255, 0.35);
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+
+                top: 12px;
+
+                width: 94%;
+
+                padding: 0 18px;
+            }
+
+            .nav-links {
+
+                gap: 15px;
+            }
+
+            .nav-links a {
+
+                font-size: 12px;
+            }
+
+            .hero {
+
+                padding: 0 6%;
+            }
+
+            .hero-content h1 {
+
+                font-size: clamp(48px, 14vw, 70px);
+
+                letter-spacing: -3px;
+            }
+
+            .hero-content h2 {
+
+                font-size: 18px;
+            }
+
+            section {
+
+                padding: 100px 6%;
+            }
+
+            .projects-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .project {
+
+                min-height: 260px;
+            }
+
+            .contact h2 {
+
+                letter-spacing: -3px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
 <body>
 
-    <!-- BACKGROUND -->
 
-    <div class="background"></div>
-    <div class="background-overlay"></div>
+    <!-- NAVBAR -->
 
+    <nav class="navbar">
 
-    <!-- HEADER -->
+        <div class="logo">
+            GABRIEL
+        </div>
 
-    <header class="header">
+        <div class="nav-links">
 
-        <a href="#inicio" class="logo">
-            GABRIEL <span>LUNELLI</span>
-        </a>
-
-
-        <nav class="navigation">
-
-            <a href="#inicio" class="active">
-                Início
+            <a href="#home">
+                Home
             </a>
 
             <a href="#sobre">
@@ -59,493 +600,202 @@
                 Projetos
             </a>
 
-            <a href="#stack">
-                Stack
-            </a>
-
-            <a href="#jornada">
-                Jornada
-            </a>
-
             <a href="#contato">
                 Contato
             </a>
 
-        </nav>
-
-
-        <div class="social-buttons">
-
-            <a
-                href="https://github.com/gabriellunelli"
-                target="_blank"
-            >
-                GH
-            </a>
-
-            <a
-                href="https://linkedin.com/in/gabriellunelli"
-                target="_blank"
-            >
-                in
-            </a>
-
         </div>
 
-    </header>
-
+    </nav>
 
 
     <main>
 
-        <!-- HERO -->
 
-        <section id="inicio" class="hero">
+        <!-- HOME -->
+
+        <section id="home" class="hero">
 
             <div class="hero-content">
 
-                <p class="eyebrow">
-                    ESTUDANTE DE TECNOLOGIA
+                <p>
+                    Olá, eu sou
                 </p>
-
 
                 <h1>
-                    Gabriel
-                    <br>
-                    <span>Lunelli.</span>
+                    Gabriel<br>
+                    Lunelli
                 </h1>
 
-
-                <p class="hero-role">
-
-                    Foco em
-                    <strong>DevOps</strong>,
-                    <strong>Cloud</strong>
-                    &
-                    <strong>Automação.</strong>
-
-                </p>
-
-
-                <p class="hero-description">
-
-                    Construindo projetos, aprendendo todos os dias
-                    e transformando conhecimento em soluções reais.
-
-                </p>
-
-
-                <div class="hero-actions">
-
-                    <a
-                        href="#projetos"
-                        class="button button-primary"
-                    >
-                        Ver projetos
-                        <span>→</span>
-                    </a>
-
-
-                    <a
-                        href="#contato"
-                        class="button button-secondary"
-                    >
-                        Entre em contato
-                    </a>
-
-                </div>
-
-
-                <div class="hero-socials">
-
-                    <a
-                        href="https://github.com/gabriellunelli"
-                        target="_blank"
-                    >
-                        <span class="social-icon">
-                            GH
-                        </span>
-
-                        GitHub
-                    </a>
-
-
-                    <a
-                        href="https://linkedin.com/in/gabriellunelli"
-                        target="_blank"
-                    >
-                        <span class="social-icon">
-                            in
-                        </span>
-
-                        LinkedIn
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="scroll-indicator">
-
-                <span></span>
-
-                ROLE PARA EXPLORAR
-
-            </div>
-
-        </section>
-
-
-
-        <!-- SOBRE -->
-
-        <section id="sobre" class="section">
-
-            <div class="section-heading">
-
-                <span class="section-number">
-                    01
-                </span>
-
-                <div class="heading-line"></div>
-
-                <div>
-
-                    <p class="section-label">
-                        SOBRE MIM
-                    </p>
-
-                    <h2>
-                        Construindo minha base.
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div class="about-grid">
-
-
-                <div class="about-description">
-
-                    <p>
-                        Sou estudante de TI com foco em
-                        <strong>
-                            DevOps, Cloud, automação
-                        </strong>
-                        e infraestrutura.
-                    </p>
-
-
-                    <p>
-                        Tenho interesse em sistemas, redes,
-                        desenvolvimento e segurança.
-                    </p>
-
-
-                    <p>
-                        Atualmente estudo Python, Linux, redes,
-                        Git, containers e ferramentas do
-                        ecossistema DevOps, sempre buscando
-                        aprender na prática.
-                    </p>
-
-                </div>
-
-
-
-                <div class="about-cards">
-
-
-                    <article class="about-card">
-
-                        <div class="card-icon">
-                            &gt;_
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                Automação
-                            </h3>
-
-                            <p>
-                                Automatização de tarefas
-                                repetitivas e processos.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="about-card">
-
-                        <div class="card-icon">
-                            CLOUD
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                Infraestrutura
-                            </h3>
-
-                            <p>
-                                Sistemas, redes, serviços
-                                e ambientes escaláveis.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="about-card">
-
-                        <div class="card-icon">
-                            MON
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                Monitoramento
-                            </h3>
-
-                            <p>
-                                Observabilidade e análise
-                                de sistemas.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="about-card">
-
-                        <div class="card-icon">
-                            CODE
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                Desenvolvimento
-                            </h3>
-
-                            <p>
-                                Código utilizado para resolver
-                                problemas reais.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- PROJETOS -->
-
-        <section id="projetos" class="section">
-
-            <div class="section-heading">
-
-                <span class="section-number">
-                    02
-                </span>
-
-                <div class="heading-line"></div>
-
-                <div>
-
-                    <p class="section-label">
-                        PROJETOS
-                    </p>
-
-                    <h2>
-                        Coisas que eu construí.
-                    </h2>
-
-                </div>
-
+                <h2>
+                    Desenvolvedor em formação com foco em
+                    backend, infraestrutura e tecnologia.
+                </h2>
 
                 <a
-                    href="https://github.com/gabriellunelli"
-                    target="_blank"
-                    class="all-projects"
+                    href="#projetos"
+                    class="button"
                 >
-                    Ver todos no GitHub
-                    <span>→</span>
+                    Ver projetos
                 </a>
 
             </div>
 
+        </section>
 
+
+        <!-- SOBRE -->
+
+        <section id="sobre" class="about">
+
+            <h2 class="section-title">
+                Sobre mim
+            </h2>
+
+            <div class="about-content">
+
+                <p>
+                    Sou estudante de tecnologia e desenvolvedor
+                    em formação. Atualmente construo minha experiência
+                    através de estudos, projetos e desafios práticos.
+                </p>
+
+                <br>
+
+                <p>
+                    Tenho interesse principalmente em
+                    <strong>backend, DevOps, Linux, automação
+                    e segurança.</strong>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJETOS -->
+
+        <section id="projetos" class="projects">
+
+            <h2 class="section-title">
+                Projetos
+            </h2>
 
             <div class="projects-grid">
 
 
-                <article class="project-card">
+                <article class="project">
 
-                    <div class="project-top">
+                    <span class="project-number">
+                        01
+                    </span>
 
-                        <div class="project-icon">
-                            WEB
-                        </div>
+                    <div>
 
-                        <span class="project-number">
-                            01
-                        </span>
+                        <h3>
+                            Emy Nails
+                        </h3>
+
+                        <p>
+                            Website desenvolvido para apresentar
+                            uma marca e seus serviços.
+                        </p>
 
                     </div>
 
+                    <a
+                        href="#"
+                        class="project-link"
+                    >
+                        Ver projeto →
+                    </a>
 
-                    <div class="project-content">
+                </article>
+
+
+                <article class="project">
+
+                    <span class="project-number">
+                        02
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Python Automation
+                        </h3>
+
+                        <p>
+                            Projetos de automação utilizando Python
+                            para resolver tarefas do dia a dia.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="#"
+                        class="project-link"
+                    >
+                        Ver projeto →
+                    </a>
+
+                </article>
+
+
+                <article class="project">
+
+                    <span class="project-number">
+                        03
+                    </span>
+
+                    <div>
 
                         <h3>
                             Website Monitor
                         </h3>
 
                         <p>
-                            Monitora disponibilidade e tempo
-                            de resposta de websites.
+                            Sistema desenvolvido em Python para
+                            monitoramento de websites.
                         </p>
-
-
-                        <div class="project-tags">
-
-                            <span>Python</span>
-                            <span>Requests</span>
-                            <span>HTTP</span>
-
-                        </div>
 
                     </div>
 
-
                     <a
-                        href="https://github.com/gabriellunelli"
-                        target="_blank"
+                        href="#"
                         class="project-link"
                     >
-                        Ver no GitHub
-                        <span>↗</span>
+                        Ver projeto →
                     </a>
 
                 </article>
 
 
+                <article class="project">
 
-                <article class="project-card">
+                    <span class="project-number">
+                        04
+                    </span>
 
-                    <div class="project-top">
-
-                        <div class="project-icon">
-                            SYS
-                        </div>
-
-                        <span class="project-number">
-                            02
-                        </span>
-
-                    </div>
-
-
-                    <div class="project-content">
+                    <div>
 
                         <h3>
-                            System Monitor
+                            GitHub
                         </h3>
 
                         <p>
-                            Monitora CPU, memória, disco
-                            e processos do sistema.
+                            Meus projetos, estudos e experimentos
+                            de desenvolvimento.
                         </p>
 
-
-                        <div class="project-tags">
-
-                            <span>Python</span>
-                            <span>Psutil</span>
-                            <span>Linux</span>
-
-                        </div>
-
                     </div>
-
 
                     <a
                         href="https://github.com/gabriellunelli"
                         target="_blank"
                         class="project-link"
                     >
-                        Ver no GitHub
-                        <span>↗</span>
-                    </a>
-
-                </article>
-
-
-
-                <article class="project-card">
-
-                    <div class="project-top">
-
-                        <div class="project-icon">
-                            FILE
-                        </div>
-
-                        <span class="project-number">
-                            03
-                        </span>
-
-                    </div>
-
-
-                    <div class="project-content">
-
-                        <h3>
-                            Downloads Organizer
-                        </h3>
-
-                        <p>
-                            Automatiza a organização de arquivos
-                            na pasta de Downloads.
-                        </p>
-
-
-                        <div class="project-tags">
-
-                            <span>Python</span>
-                            <span>Pathlib</span>
-                            <span>Shutil</span>
-
-                        </div>
-
-                    </div>
-
-
-                    <a
-                        href="https://github.com/gabriellunelli"
-                        target="_blank"
-                        class="project-link"
-                    >
-                        Ver no GitHub
-                        <span>↗</span>
+                        GitHub →
                     </a>
 
                 </article>
@@ -556,353 +806,93 @@
         </section>
 
 
+        <!-- TECNOLOGIAS -->
 
-        <!-- STACK -->
+        <section class="skills">
 
-        <section id="stack" class="section">
+            <h2 class="section-title">
+                Tecnologias
+            </h2>
 
-            <div class="section-heading">
+            <div class="skills-list">
 
-                <span class="section-number">
-                    03
+                <span class="skill">
+                    Python
                 </span>
 
-                <div class="heading-line"></div>
-
-                <div>
-
-                    <p class="section-label">
-                        STACK & FERRAMENTAS
-                    </p>
-
-                    <h2>
-                        O que estou aprendendo.
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div class="stack-grid">
-
-
-                <div class="stack-item">
-
-                    <div class="stack-icon">
-                        PY
-                    </div>
-
-                    <span>
-                        Python
-                    </span>
-
-                </div>
-
-
-                <div class="stack-item">
-
-                    <div class="stack-icon">
-                        LNX
-                    </div>
-
-                    <span>
-                        Linux
-                    </span>
-
-                </div>
-
-
-                <div class="stack-item">
-
-                    <div class="stack-icon">
-                        GIT
-                    </div>
-
-                    <span>
-                        Git
-                    </span>
-
-                </div>
-
-
-                <div class="stack-item">
-
-                    <div class="stack-icon">
-                        GH
-                    </div>
-
-                    <span>
-                        GitHub
-                    </span>
-
-                </div>
-
-
-                <div class="stack-item">
-
-                    <div class="stack-icon">
-                        DKR
-                    </div>
-
-                    <span>
-                        Docker
-                    </span>
-
-                </div>
-
-
-                <div class="stack-item">
-
-                    <div class="stack-icon">
-                        SH
-                    </div>
-
-                    <span>
-                        Bash
-                    </span>
-
-                </div>
-
-
-                <div class="stack-item">
-
-                    <div class="stack-icon">
-                        JS
-                    </div>
-
-                    <span>
-                        JavaScript
-                    </span>
-
-                </div>
-
-
-                <div class="stack-item">
-
-                    <div class="stack-icon">
-                        DB
-                    </div>
-
-                    <span>
-                        PostgreSQL
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- JORNADA -->
-
-        <section id="jornada" class="section">
-
-            <div class="section-heading">
-
-                <span class="section-number">
-                    04
+                <span class="skill">
+                    JavaScript
                 </span>
 
-                <div class="heading-line"></div>
+                <span class="skill">
+                    Node.js
+                </span>
 
-                <div>
+                <span class="skill">
+                    Git
+                </span>
 
-                    <p class="section-label">
-                        JORNADA
-                    </p>
+                <span class="skill">
+                    GitHub
+                </span>
 
-                    <h2>
-                        Evoluindo um pouco todos os dias.
-                    </h2>
+                <span class="skill">
+                    Linux
+                </span>
 
-                </div>
+                <span class="skill">
+                    Docker
+                </span>
 
-            </div>
-
-
-            <div class="timeline">
-
-
-                <article class="timeline-item">
-
-                    <div class="timeline-dot"></div>
-
-                    <span class="timeline-year">
-                        2025
-                    </span>
-
-                    <div class="timeline-card">
-
-                        <h3>
-                            Primeiros passos
-                        </h3>
-
-                        <p>
-                            Início dos estudos em Python
-                            e automação.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-
-                <article class="timeline-item">
-
-                    <div class="timeline-dot"></div>
-
-                    <span class="timeline-year">
-                        2025
-                    </span>
-
-                    <div class="timeline-card">
-
-                        <h3>
-                            Projetos & Prática
-                        </h3>
-
-                        <p>
-                            Desenvolvimento de projetos para
-                            consolidar conhecimentos.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-
-                <article class="timeline-item">
-
-                    <div class="timeline-dot"></div>
-
-                    <span class="timeline-year">
-                        2026
-                    </span>
-
-                    <div class="timeline-card">
-
-                        <h3>
-                            DevOps
-                        </h3>
-
-                        <p>
-                            Foco em Linux, redes, Docker,
-                            CI/CD e observabilidade.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-
-                <article class="timeline-item">
-
-                    <div class="timeline-dot"></div>
-
-                    <span class="timeline-year">
-                        2026+
-                    </span>
-
-                    <div class="timeline-card">
-
-                        <h3>
-                            Cloud & Beyond
-                        </h3>
-
-                        <p>
-                            Evoluindo em Cloud, IaC,
-                            escalabilidade e segurança.
-                        </p>
-
-                    </div>
-
-                </article>
-
+                <span class="skill">
+                    SQL
+                </span>
 
             </div>
 
         </section>
-
 
 
         <!-- CONTATO -->
 
-        <section id="contato" class="contact-section">
+        <section id="contato" class="contact">
 
-            <div class="contact-content">
+            <h2>
+                Vamos construir
+                algo juntos.
+            </h2>
 
-                <div>
+            <div class="contact-links">
 
-                    <p class="section-label">
-                        05 &nbsp; CONTATO
-                    </p>
+                <a
+                    href="https://github.com/gabriellunelli"
+                    target="_blank"
+                >
+                    GitHub
+                </a>
 
-                    <h2>
-                        Vamos conversar?
-                    </h2>
+                <a
+                    href="https://linkedin.com/in/gabriellunelli"
+                    target="_blank"
+                >
+                    LinkedIn
+                </a>
 
-                    <p>
-                        Estou sempre aberto a novas oportunidades,
-                        projetos e conversas sobre tecnologia.
-                    </p>
-
-                </div>
-
-
-                <div class="contact-actions">
-
-                    <a
-                        href="mailto:seuemail@email.com"
-                        class="button button-primary"
-                    >
-                        Enviar Email
-                    </a>
-
-
-                    <a
-                        href="https://github.com/gabriellunelli"
-                        target="_blank"
-                        class="contact-social"
-                    >
-                        GH
-                    </a>
-
-
-                    <a
-                        href="https://linkedin.com/in/gabriellunelli"
-                        target="_blank"
-                        class="contact-social"
-                    >
-                        in
-                    </a>
-
-                </div>
+                <a href="mailto:seuemail@email.com">
+                    Email
+                </a>
 
             </div>
 
         </section>
 
+
     </main>
 
 
-
-    <!-- FOOTER -->
-
     <footer>
 
-        <span>
-            © 2026 Gabriel Lunelli.
-        </span>
-
-        <span>
-            Feito com código e propósito.
-        </span>
+        © 2026 Gabriel Lunelli
 
     </footer>
 
