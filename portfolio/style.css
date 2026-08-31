@@ -1,0 +1,558 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+}
+
+
+/* =========================
+   FUNDO FIXO
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.75)
+        ),
+        url("img/fundo.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.15);
+
+    z-index: -1;
+}
+
+
+/* =========================
+   NAVBAR FLUTUANTE
+========================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(700px, 90%);
+
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 22px;
+
+    z-index: 100;
+
+    background: rgba(20, 20, 20, 0.166);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 50px;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* LOGO */
+
+.logo {
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* LINKS */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+}
+
+.nav-links a {
+
+    color: rgba(255, 255, 255, 0.75);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+
+    color: white;
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+section {
+
+    min-height: 100vh;
+
+    padding: 140px 8%;
+
+    background: rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 8%;
+
+    background: transparent;
+}
+
+.hero-content {
+
+    max-width: 700px;
+}
+
+.hero-content p {
+
+    font-size: 18px;
+
+    margin-bottom: 12px;
+
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.hero-content h1 {
+
+    font-size: clamp(48px, 7vw, 90px);
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 20px;
+}
+
+.hero-content h2 {
+
+    font-size: 22px;
+
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   BOTÃO
+========================= */
+
+.button {
+
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    background: white;
+
+    color: black;
+
+    text-decoration: none;
+
+    border-radius: 50px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.button:hover {
+
+    transform: translateY(-3px);
+
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
+.section-title {
+
+    font-size: clamp(40px, 5vw, 65px);
+
+    letter-spacing: -3px;
+
+    margin-bottom: 55px;
+}
+
+
+/* =========================
+   SOBRE
+========================= */
+
+.about {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.about-content {
+
+    max-width: 800px;
+}
+
+.about-content p {
+
+    font-size: 21px;
+
+    line-height: 1.7;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.about-content strong {
+
+    color: white;
+}
+
+
+/* =========================
+   PROJETOS
+========================= */
+
+.projects {
+
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.projects-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+    max-width: 1100px;
+}
+
+.project {
+
+    min-height: 300px;
+
+    padding: 35px;
+
+    background: rgba(15, 15, 15, 0.45);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    transition: 0.3s;
+}
+
+.project:hover {
+
+    transform: translateY(-5px);
+
+    background: rgba(25, 25, 25, 0.55);
+
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-number {
+
+    font-size: 13px;
+
+    color: #666;
+}
+
+.project h3 {
+
+    font-size: 30px;
+
+    margin-bottom: 12px;
+}
+
+.project p {
+
+    color: rgba(255, 255, 255, 0.55);
+
+    line-height: 1.6;
+}
+
+.project-link {
+
+    margin-top: 25px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.project-link:hover {
+
+    opacity: 0.5;
+}
+
+
+/* =========================
+   TECNOLOGIAS
+========================= */
+
+.skills {
+
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.skills-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    max-width: 800px;
+}
+
+.skill {
+
+    padding: 12px 18px;
+
+    background: rgba(20, 20, 20, 0.45);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 50px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    backdrop-filter: blur(8px);
+
+    transition: 0.3s;
+}
+
+.skill:hover {
+
+    color: white;
+
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* =========================
+   CONTATO
+========================= */
+
+.contact {
+
+    min-height: 80vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.contact h2 {
+
+    font-size: clamp(45px, 6vw, 80px);
+
+    max-width: 850px;
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 40px;
+}
+
+.contact-links {
+
+    display: flex;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+.contact-links a {
+
+    color: white;
+
+    text-decoration: none;
+
+    padding-bottom: 5px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+    transition: 0.3s;
+}
+
+.contact-links a:hover {
+
+    border-color: white;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    padding: 30px 8%;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: rgba(255, 255, 255, 0.35);
+
+    font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+
+        top: 12px;
+
+        width: 94%;
+
+        padding: 0 18px;
+    }
+
+    .nav-links {
+
+        gap: 15px;
+    }
+
+    .nav-links a {
+
+        font-size: 12px;
+    }
+
+    .hero {
+
+        padding: 0 6%;
+    }
+
+    .hero-content h1 {
+
+        font-size: clamp(48px, 14vw, 70px);
+
+        letter-spacing: -3px;
+    }
+
+    .hero-content h2 {
+
+        font-size: 18px;
+    }
+
+    section {
+
+        padding: 100px 6%;
+    }
+
+    .projects-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .project {
+
+        min-height: 260px;
+    }
+
+    .contact h2 {
+
+        letter-spacing: -3px;
+    }
+
+}
